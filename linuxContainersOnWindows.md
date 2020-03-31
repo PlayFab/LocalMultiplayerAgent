@@ -9,39 +9,40 @@ To run your containerized Linux game servers on Windows, you'll need to perform 
 - Make sure it's running [Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 - You should mount one of your hard drives, instructions [here](https://docs.docker.com/docker-for-windows/#file-sharing)
 - Your game server image can be published on a container registry or can be locally built.
-- You should properly configure your *LocalMultiplayerSettings.json* file. Below you can see a sample:
+- You should run `SetupLinuxContainersOnWindows.ps1` Powershell file which will create a Docker network called "PlayFab"
+- You should properly configure your *LocalMultiplayerSettings.json* file. Below you can see a sample, included in `MultiplayerSettingsLinuxContainersOnWindowsSample.json`:
 
 ```json
 {
     "RunContainer": true,
-    "OutputFolder": "C:\\Output\\UnityServerLinux",
+    "OutputFolder": "C:\\output\\UnityServerLinux",
     "NumHeartBeatsForActivateResponse": 10,
     "NumHeartBeatsForTerminateResponse": 60,
     "TitleId": "",
     "BuildId": "00000000-0000-0000-0000-000000000000",
     "Region": "WestUs",
     "AgentListeningPort": 56001,
-    "ServerStartParameters": {
+    "ContainerStartParameters": {
         "ImageDetails": {
             "Registry": "mydockerregistry.io",
             "ImageName": "mygame",
             "ImageTag": "0.1",
             "Username": "",
             "Password": ""
-        },
-        "PortMappingsList": [
-            [
-                {
-                    "NodePort": 56100,
-                    "GamePort": {
-                        "Name": "game_port",
-                        "Number": 7777,
-                        "Protocol": "TCP"
-                    }
-                }
-            ]
-        ]
+        }
     },
+    "PortMappingsList": [
+        [
+            {
+                "NodePort": 56100,
+                "GamePort": {
+                    "Name": "game_port",
+                    "Number": 7777,
+                    "Protocol": "TCP"
+                }
+            }
+        ]
+    ],
     "SessionConfig": {
         "SessionId": "ba67d671-512a-4e7d-a38c-2329ce181946",
         "SessionCookie": null,
