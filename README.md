@@ -1,4 +1,7 @@
 # LocalMultiplayerAgent
+
+**This repository has been archived, LocalMultiplayerAgent is OSS at https://github.com/PlayFab/MpsAgent**
+
 An executable that mimics PlayFab Multiplayer Servers (Thunderhead) operations to aid in local debugging.
 
 Check the [Releases](https://github.com/PlayFab/LocalMultiplayerAgent/releases) page to download the latest version and then follow the [Local Debug Instructions](https://docs.microsoft.com/en-us/gaming/playfab/features/multiplayer/servers/locally-debugging-game-servers-and-integration-with-playfab) for usage. Also check out the main [Multiplayer Server Documentation](https://docs.microsoft.com/en-us/gaming/playfab/features/multiplayer/servers/) for more information.
